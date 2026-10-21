@@ -1,3 +1,5 @@
-metadata.json
-.jpg
-.pdf
+*.json
+*.jpg
+*.jpeg
+*.png
+*.pdf
