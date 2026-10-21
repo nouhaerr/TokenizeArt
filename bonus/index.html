@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT42 — Mint Your NFT</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #f0c040, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 1rem;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 16px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        .nft-image {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .nft-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .nft-info p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .nft-info span {
+            color: #f0c040;
+            font-weight: bold;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 10px;
+        }
+
+        #connectBtn {
+            background: linear-gradient(90deg, #f0c040, #ff6b6b);
+            color: #000;
+        }
+
+        #connectBtn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        #mintBtn {
+            background: #2a2a2a;
+            color: #fff;
+            border: 1px solid #f0c040;
+            display: none;
+        }
+
+        #mintBtn:hover {
+            background: #f0c040;
+            color: #000;
+        }
+
+        #mintBtn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status {
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 0.85rem;
+            color: #888;
+            word-break: break-all;
+            min-height: 50px;
+            display: none;
+        }
+
+        .status.visible {
+            display: block;
+        }
+
+        .status.success {
+            border-color: #4caf50;
+            color: #4caf50;
+        }
+
+        .status.error {
+            border-color: #f44336;
+            color: #f44336;
+        }
+
+        .wallet-info {
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 10px;
+            display: none;
+            word-break: break-all;
+        }
+
+        .wallet-info.visible {
+            display: block;
+        }
+
+        .network-badge {
+            display: inline-block;
+            background: #1a3a5c;
+            color: #4fc3f7;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #f0c040;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .links {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>NFT42</h1>
+    <p class="subtitle">Mint your unique NFT on the blockchain</p>
+    <span class="network-badge">🔗 Ethereum Sepolia Testnet</span>
+
+    <div class="card">
+        <!-- NFT Image -->
+        <img
+            class="nft-image"
+            src="https://ipfs.io/ipfs/bafkreigdvkxu4exiwxofctwirkfen4sankr3nboviaurb2el3c73uut3yq"
+            alt="NFT42 — Cake 42"
+        />
+
+        <!-- NFT Info -->
+        <div class="nft-info">
+            <p>Name : <span>NFT42 — Cake</span></p>
+            <p>Symbol : <span>NFTK42</span></p>
+            <p>Standard : <span>ERC-721</span></p>
+            <p>Contract : <span>
+                <a href="https://sepolia.etherscan.io/address/0x65c6A0B1c7558a5A0A84B2c9A5832aa4f6443041" target="_blank">
+                    0x65c6...3041
+                </a>
+            </span></p>
+        </div>
+
+        <!-- Wallet Info -->
+        <div class="wallet-info" id="walletInfo"></div>
+
+        <!-- Connect Button -->
+        <button id="connectBtn" onclick="connectWallet()">
+            🦊 Connect MetaMask
+        </button>
+
+        <!-- Mint Button -->
+        <button id="mintBtn" onclick="mintNFT()">
+            ✨ Mint NFT42
+        </button>
+
+        <!-- Status -->
+        <div class="status" id="status"></div>
+
+        <!-- Links -->
+        <div class="links">
+            <a href="https://sepolia.etherscan.io/address/0x65c6A0B1c7558a5A0A84B2c9A5832aa4f6443041" target="_blank">
+                📋 View on Etherscan
+            </a>
+            <a href="https://ipfs.io/ipfs/bafkreibp5fc5ors37rgrubmceal4ove7ankslhtp2wrepy7kszw62llvre" target="_blank">
+                📄 View Metadata
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Contract configuration
+        const CONTRACT_ADDRESS = "0x65c6A0B1c7558a5A0A84B2c9A5832aa4f6443041";
+        const TOKEN_URI = "ipfs://bafkreibp5fc5ors37rgrubmceal4ove7ankslhtp2wrepy7kszw62llvre";
+        const SEPOLIA_CHAIN_ID = "0xaa36a7"; // 11155111 in hex
+
+        // Minimal ABI — only the functions we need
+        const ABI = [
+            "function mintNFT(address to, string memory uri) public",
+            "function ownerOf(uint256 tokenId) public view returns (address)",
+            "function tokenURI(uint256 tokenId) public view returns (string)"
+        ];
+
+        let provider;
+        let signer;
+        let contract;
+        let userAddress;
+
+        // Show status message
+        function showStatus(message, type = "") {
+            const status = document.getElementById("status");
+            status.textContent = message;
+            status.className = "status visible " + type;
+        }
+
+        // Connect MetaMask wallet
+        async function connectWallet() {
+            try {
+                // Check if MetaMask is installed
+                if (!window.ethereum) {
+                    showStatus("MetaMask not detected. Please install it from metamask.io", "error");
+                    return;
+                }
+
+                showStatus("Connecting to MetaMask...");
+
+                // Request wallet connection
+                await window.ethereum.request({ method: "eth_requestAccounts" });
+
+                // Check network — must be Sepolia
+                const chainId = await window.ethereum.request({ method: "eth_chainId" });
+                if (chainId !== SEPOLIA_CHAIN_ID) {
+                    showStatus("Wrong network! Please switch to Sepolia Testnet in MetaMask.", "error");
+                    return;
+                }
+
+                // Setup ethers provider and signer
+                provider = new ethers.BrowserProvider(window.ethereum);
+                signer = await provider.getSigner();
+                userAddress = await signer.getAddress();
+
+                // Setup contract instance
+                contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
+
+                // Update UI
+                document.getElementById("walletInfo").textContent = "✅ Connected : " + userAddress;
+                document.getElementById("walletInfo").classList.add("visible");
+                document.getElementById("connectBtn").textContent = "✅ Connected";
+                document.getElementById("connectBtn").disabled = true;
+                document.getElementById("mintBtn").style.display = "block";
+
+                showStatus("Wallet connected successfully! You can now mint the NFT.", "success");
+
+            } catch (error) {
+                showStatus("Connection failed: " + error.message, "error");
+            }
+        }
+
+        // Mint the NFT
+        async function mintNFT() {
+            try {
+                const mintBtn = document.getElementById("mintBtn");
+                mintBtn.disabled = true;
+                mintBtn.textContent = "⏳ Minting...";
+
+                showStatus("Sending transaction... Please confirm in MetaMask.");
+
+                // Call mintNFT on the contract
+                const tx = await contract.mintNFT(userAddress, TOKEN_URI);
+                showStatus("Transaction sent! Waiting for confirmation...\nHash: " + tx.hash);
+
+                // Wait for transaction to be mined
+                const receipt = await tx.wait();
+
+                showStatus(
+                    "🎉 NFT minted successfully!\n" +
+                    "Transaction: " + receipt.hash + "\n" +
+                    "View on Etherscan: https://sepolia.etherscan.io/tx/" + receipt.hash,
+                    "success"
+                );
+
+                mintBtn.textContent = "✅ NFT Minted!";
+
+            } catch (error) {
+                showStatus("Mint failed: " + error.message, "error");
+                document.getElementById("mintBtn").disabled = false;
+                document.getElementById("mintBtn").textContent = "✨ Mint NFT42";
+            }
+        }
+    </script>
+
+</body>
+</html>
