@@ -23,3 +23,14 @@
    - to : recipient address
    - uri : ipfs://[CID of the metadata JSON file]
 4. Confirm in MetaMask
+
+## Website Minting
+
+From the repository root, run `python3 -m http.server 8000` and open
+http://localhost:8000/mint/. Connect the original contract deployer account on
+Sepolia. Select IPFS for the original image or On-chain for the SVG bonus, then
+click Mint NFT42 and confirm in MetaMask. Only the contract owner can mint.
+
+The confirmed transaction status shows the new token ID, owner and hash.
+Use this token ID when calling `ownerOf` and `tokenURI`; do not assume it is 0.
+See `documentation/onchain_bonus.md` for verification of the inscriptions bonus.

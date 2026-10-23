@@ -4,7 +4,7 @@
 
 NFT42 (NFTK42) is an ERC-721 non-fungible token deployed on Ethereum Sepolia Testnet.
 It represents a unique image of a cake shaped as the number 42,
-permanently stored on IPFS.
+stored on IPFS and retained through pinning.
 
 ## What is an NFT?
 
@@ -38,7 +38,7 @@ public blockchain, with an image stored in a decentralized way on IPFS.
 
 - **onlyOwner** : only the owner can mint new NFTs
 - **_safeMint** : verifies the recipient can receive NFTs
-- **IPFS** : the image cannot be modified or deleted
+- **IPFS** : changing image bytes changes their CID; continued availability requires pinning
 
 ## Network
 

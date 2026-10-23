@@ -3,3 +3,13 @@
 *.jpeg
 *.png
 *.pdf
+
+# Public project assets included in the submission
+!tokenizart.jpg
+!evaluation_checklist.md
+
+# Local tools, secrets and generated files
+node_modules/
+.env
+.env.*
+.DS_Store

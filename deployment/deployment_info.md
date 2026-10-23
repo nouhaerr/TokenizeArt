@@ -18,7 +18,7 @@ Environment: Injected Provider - MetaMask
 ## Deployment Steps
 1. Go to https://remix.ethereum.org
 2. Create contracts/NFT42.sol and paste the code
-3. Compile with Solidity 0.8.20
+3. Use the compiler version, OpenZeppelin dependency versions, optimizer and EVM settings from the verified deployment. The source requires Solidity >=0.8.20; imported dependencies can require a newer compiler. Reuse the verified sources/dependencies rather than resolving a different OpenZeppelin release during the defense.
 4. Go to "Deploy & Run Transactions" tab
 5. Environment → "Injected Provider - MetaMask"
 6. Connect MetaMask on Sepolia Testnet
