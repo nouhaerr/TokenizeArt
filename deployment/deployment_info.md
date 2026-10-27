@@ -10,10 +10,10 @@ Environment: Injected Provider - MetaMask
 - Explorer : https://sepolia.etherscan.io
 
 ## Deployed Contract
-- Address : 0x65c6A0B1c7558a5A0A84B2c9A5832aa4f6443041
+- Address : 0xB85aC5D01FC5160b76A3416A172e0F377c9De74d
 - Name : NFT42
 - Symbol : NFTK42
-- Explorer : https://sepolia.etherscan.io/address/0x65c6A0B1c7558a5A0A84B2c9A5832aa4f6443041
+- Explorer : https://sepolia.etherscan.io/address/0xB85aC5D01FC5160b76A3416A172e0F377c9De74d
 
 ## Deployment Steps
 1. Go to https://remix.ethereum.org
@@ -29,7 +29,7 @@ Environment: Injected Provider - MetaMask
 1. Go to https://remix.ethereum.org
 2. Compile NFT42.sol
 3. Environment → "Injected Provider - MetaMask"
-4. In "At Address" → paste : 0x65c6A0B1c7558a5A0A84B2c9A5832aa4f6443041
+4. In "At Address" → paste : 0xB85aC5D01FC5160b76A3416A172e0F377c9De74d
 5. Click "At Address"
 
 ## Verification

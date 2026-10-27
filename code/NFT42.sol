@@ -39,13 +39,13 @@ contract NFT42 is ERC721, ERC721URIStorage {
      * @dev Mint un nouveau NFT vers une adresse avec ses métadonnées IPFS
      *      Réservé à l'owner uniquement
      * @param to Adresse qui recevra le NFT
-     * @param tokenURI URI IPFS pointant vers le fichier de métadonnées JSON
+     * @param uri URI IPFS pointant vers le fichier de métadonnées JSON
      */
-    function mintNFT(address to, string memory tokenURI) public onlyOwner {
+    function mintNFT(address to, string memory uri) public onlyOwner {
         uint256 tokenId = _tokenIdCounter;
         _tokenIdCounter++;
         _safeMint(to, tokenId);
-        _setTokenURI(tokenId, tokenURI);
+        _setTokenURI(tokenId, uri);
     }
 
     /**
@@ -67,16 +67,5 @@ contract NFT42 is ERC721, ERC721URIStorage {
         returns (bool)
     {
         return super.supportsInterface(interfaceId);
-    }
-
-    /**
-     * @dev Retourne l'adresse du propriétaire d'un NFT
-     * @param tokenId ID du token
-     */
-    function ownerOf(uint256 tokenId)
-        public view override(ERC721)
-        returns (address)
-    {
-        return super.ownerOf(tokenId);
     }
 }

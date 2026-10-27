@@ -14,11 +14,11 @@
 ## Minted NFT
 - Token ID : 0
 - Owner : 0x5e5d721ffA48701ffb04c5A779e9314b9817da5B
-- Transaction : https://sepolia.etherscan.io/tx/0xa38fc4221f9274d7556d945510216366d3fc6d526923a144972e676221a4ff74
+- Mint transactions : https://sepolia.etherscan.io/address/0xB85aC5D01FC5160b76A3416A172e0F377c9De74d#tokentxnsErc721
 
 ## How to Mint a New NFT
 1. Open Remix IDE
-2. Load the contract via "At Address" : 0x65c6A0B1c7558a5A0A84B2c9A5832aa4f6443041
+2. Load the contract via "At Address" : 0xB85aC5D01FC5160b76A3416A172e0F377c9De74d
 3. Call mintNFT with :
    - to : recipient address
    - uri : ipfs://[CID of the metadata JSON file]

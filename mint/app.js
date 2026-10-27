@@ -1,4 +1,4 @@
-const CONTRACT_ADDRESS = '0x65c6A0B1c7558a5A0A84B2c9A5832aa4f6443041';
+const CONTRACT_ADDRESS = '0xB85aC5D01FC5160b76A3416A172e0F377c9De74d';
 const IMAGE_CID = 'bafkreigdvkxu4exiwxofctwirkfen4sankr3nboviaurb2el3c73uut3yq';
 const METADATA_CID = 'bafkreibp5fc5ors37rgrubmceal4ove7ankslhtp2wrepy7kszw62llvre';
 const TOKEN_URI = 'ipfs://' + METADATA_CID;

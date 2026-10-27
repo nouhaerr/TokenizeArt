@@ -29,8 +29,8 @@ and metadata pinned; a CID alone does not guarantee permanent hosting.
 - **Name** : NFT42
 - **Symbol** : NFTK42
 - **Network** : Ethereum Sepolia Testnet (Chain ID: 11155111)
-- **Contract Address** : `0x65c6A0B1c7558a5A0A84B2c9A5832aa4f6443041`
-- **Explorer** : https://sepolia.etherscan.io/address/0x65c6A0B1c7558a5A0A84B2c9A5832aa4f6443041
+- **Contract Address** : `0xB85aC5D01FC5160b76A3416A172e0F377c9De74d`
+- **Explorer** : https://sepolia.etherscan.io/address/0xB85aC5D01FC5160b76A3416A172e0F377c9De74d
 - **Token ID** : 0
 - **Owner** : `0x5e5d721ffA48701ffb04c5A779e9314b9817da5B`
 

@@ -9,7 +9,7 @@
 ## View the NFT
 
 ### Via Etherscan
-1. Go to https://sepolia.etherscan.io/address/0x65c6A0B1c7558a5A0A84B2c9A5832aa4f6443041
+1. Go to https://sepolia.etherscan.io/address/0xB85aC5D01FC5160b76A3416A172e0F377c9De74d
 2. Tab "Contract" → "Read Contract"
 3. Call `tokenURI(0)` to see the metadata
 4. Call `ownerOf(0)` to see the owner
@@ -22,7 +22,7 @@ https://ipfs.io/ipfs/bafkreigdvkxu4exiwxofctwirkfen4sankr3nboviaurb2el3c73uut3yq
 1. Go to https://remix.ethereum.org
 2. Open NFT42.sol and compile using the same compiler and dependency versions as the verified deployment (see deployment/deployment_info.md)
 3. Environment → "Injected Provider - MetaMask"
-4. "At Address" → 0x65c6A0B1c7558a5A0A84B2c9A5832aa4f6443041
+4. "At Address" → 0xB85aC5D01FC5160b76A3416A172e0F377c9De74d
 5. You can call all functions
 
 ## Available Functions

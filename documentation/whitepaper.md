@@ -43,5 +43,5 @@ public blockchain, with an image stored in a decentralized way on IPFS.
 ## Network
 
 - Network : Ethereum Sepolia Testnet
-- Address : 0x65c6A0B1c7558a5A0A84B2c9A5832aa4f6443041
-- Explorer : https://sepolia.etherscan.io/address/0x65c6A0B1c7558a5A0A84B2c9A5832aa4f6443041
+- Address : 0xB85aC5D01FC5160b76A3416A172e0F377c9De74d
+- Explorer : https://sepolia.etherscan.io/address/0xB85aC5D01FC5160b76A3416A172e0F377c9De74d

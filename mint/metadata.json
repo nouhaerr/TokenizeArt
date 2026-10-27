@@ -1,0 +1,16 @@
+{
+  "name": "NFT42 — Cake",
+  "description": "A unique NFT representing the number 42 as a cake. Created at 42 school.",
+  "image": "ipfs://bafkreigdvkxu4exiwxofctwirkfen4sankr3nboviaurb2el3c73uut3yq",
+  "artist": "nerrakeb",
+  "attributes": [
+    {
+      "trait_type": "Number",
+      "value": "42"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Cake"
+    }
+  ]
+}
